@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                font-family: arial;
+            }
+            div#wrapper{
+                margin: 25px auto 0px auto;
+                width: 75%;
+            }
+            div#wrapper h1{
+                display:block;
+                background-color: #203d3a;
+                color: #fff;
+                text-align: center;
+                line-height: 75px;
+                border-radius: 20px 20px 0px 0px;
+                width: 20\0px;
+            }
+            div#wrapper img{
+                width: 40%;
+                border-radius: 0px 0px 20px 20px ;
+                cursor: pointer;
+                filter: grayscale(0%);
+
+            }
+            div#block1, div#block2{
+                width: 90%;
+                float:inline-start;
+                margin-top: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="block1">
+                <h1>Enjoy Nature</h1>
+                <img src="./pexels-matthew-montrone-230847-1179225.jpg">
+            </div>
+            <div id="block2">
+                <h1>Love Nature</h1>
+                <img src="./AI_Generated_Image.png">
+            </div>
+        </div>
+        <script>
+            document.getElementById("img1").onmouseover = abc();
+            function abc(){
+                document.getElementById("img1").style.filter = "grayscale(100%)";
+            }
+        </script>
+    </body>
+</html>
