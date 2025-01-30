@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #e3e6e6;
+        }
+
+        .navbar {
+            background-color: green;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+
+        .nav-logo img {
+            width: 100px;
+        }
+
+        .nav-location p,
+        .nav-signin p,
+        .nav-orders p {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .nav-location strong,
+        .nav-signin strong,
+        .nav-orders strong {
+            font-size: 14px;
+        }
+
+        .nav-search {
+            display: flex;
+            flex-grow: 1;
+            max-width: 600px;
+        }
+
+        .search-select {
+            background: #ddd;
+            border: none;
+            padding: 10px;
+        }
+
+        .nav-search input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+        }
+
+        .search-button {
+            background: #febd69;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .nav-cart {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .nav-bottom {
+            background-color: #232f3e;
+            padding: 10px 20px;
+        }
+
+        .nav-bottom ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-bottom li {
+            margin-right: 20px;
+        }
+
+        .nav-bottom a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        .card {
+            /* border: 2px solid black; */
+            width: 250px;
+            margin: 1rem auto;
+            /* padding: 10px; */
+            box-shadow: 2px 2px 5px green;
+            border-radius: 10px;
+            transition: all 2s ease-in;
+        }
+
+        .card:hover {
+
+            border-radius: 50%;
+        }
+
+        .cardChild {
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .cardImg {
+            width: 100%;
+            object-fit: cover;
+            height: 300px;
+            /* margin-top: 10px; */
+            transition: all 2s ease-in;
+        }
+
+        .cardImg:hover {
+            border-radius: 50%;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+        }
+
+        .product {
+            text-transform: capitalize;
+            /* border-bottom: 1px dotted green; */
+            background-color: pink;
+            padding: 5px;
+
+
+        }
+
+        .color {
+            text-transform: capitalize;
+
+        }
+
+        .offer {
+            text-transform: capitalize;
+
+        }
+
+        .price {
+
+            text-transform: capitalize;
+        }
+
+        .text {
+            padding: 5px;
+        }
+
+        .color {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            background-color: yellow;
+            justify-content: space-around;
+            justify-content: center;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: bolder;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Navbar Clone</title>
+    <link rel="shortcut icon" type="x-icon" href="./WhatsApp Image 2025-01-12 at 08.47.14_93943d91.jpg">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="https://www.instagram.com/officialpkaittan/">Paras</a>
+            </div>
+            <div class="nav-location">
+                <p>Deliver to</p>
+                <strong>Select your address</strong>
+            </div>
+            <div class="nav-search">
+                <select class="search-select">
+                    <option>All</option>
+                    <option>Electronics</option>
+                    <option>Books</option>
+                    <option>Clothing</option>
+                </select>
+                <input type="text" placeholder="Search Items">
+                <button class="search-button">🔍</button>
+            </div>
+            <div class="nav-signin">
+                <p>Hello, Sign in</p>
+                <strong>Account & Lists</strong>
+            </div>
+            <div class="nav-orders">
+                <p>Returns</p>
+                <strong>& Orders</strong>
+            </div>
+            <div class="nav-cart">
+                🛒 Cart
+            </div>
+        </div>
+        <div class="nav-bottom">
+            <ul>
+                <li><a href="#">Today's Deals</a></li>
+                <li><a href="#">Customer Service</a></li>
+                <li><a href="#">Registry</a></li>
+                <li><a href="#">Gift Cards</a></li>
+                <li><a href="#">Sell</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+
+        <div class="childContainer">
+            <div class="color">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let div = document.querySelector(".container");
+        const rang = document.querySelector(".color");
+        let data = [{ id: 1, product: "shoes", price: "12223", offer: "50%", Color: "green", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/3/i/4/9-rso385-red-tape-white-original-imahfdcfucqqghrc.jpeg?q=70" },
+        { id: 1, product: "Gloves", price: "12223", offer: "50%", Color: "White", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/glove/p/a/l/free-winter-green-gloves-1-pc-nicsy-original-imagv8bnfd8pfxfh.jpeg?q=70" },
+        { id: 2, product: "Shirt", price: "122", offer: "50%", Color: "Black", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/x/b/5/s-satin12-deemoon-original-imah7uyzh75tshdg.jpeg?q=70" },
+        { id: 3, product: "Pajama", price: "123", offer: "50%", Color: "Pink", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/pyjama/r/z/u/10-11-years-vm-1550356-11427-v-mart-original-imah7cyspz8cwnds.jpeg?q=70" },
+        { id: 4, product: "Lower", price: "19923", offer: "50%", Color: "Salmon", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/track-pant/8/o/b/xs-30659156-hrx-by-hrithik-roshan-original-imah8bypfzcuhh9v.jpeg?q=70" },
+        { id: 5, product: "jacket", price: "1563", offer: "50%", Color: "Red", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/jacket/4/n/d/xxl-1-no-jkt1-vebnor-original-imah7fagxb4epvzp.jpeg?q=70" },
+        { id: 6, product: "Underwear", price: "17823", offer: "50%", Color: "Blue", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/brief/d/z/v/xxl-2-xytrnk2pckn404-xyxx-original-imagzyyznrqpbbhc.jpeg?q=70" },
+        { id: 7, product: "Cap", price: "18923", offer: "50%", Color: "Skyblue", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/cap/n/a/n/free-w-woolen-cap-scarf-gloves-blk-01-wearslim-original-imah7jmne6zmewtv.jpeg?q=70" },
+        { id: 8, product: "Belt", price: "19623", offer: "50%", Color: "tan", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/belt/y/r/2/38-army-lock-belt-tm-21-army-lock-belt-zoro-original-imaghjgxqadbfq5b.jpeg?q=70" },
+        { id: 9, product: "Jeans", price: "156623", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/jean/7/i/w/30-01-jaar-jean-loose-blk-jaar-fashion-original-imahfay8xgpuykyr.jpeg?q=70" },
+        { id: 11, product: "Iphone 11 pro", price: "1,70000", offer: "50%", Color: "Blue", img: "https://m.media-amazon.com/images/I/61NfnaEUqOL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 12, product: "Invicta Watch", price: "3000", offer: "50%", Color: "Silver", img: "https://m.media-amazon.com/images/I/61u0Nv-aFdL._AC_SY879_.jpg" },
+        { id: 13, product: "Headphones", price: "53000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/61OHplw85eL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 14, product: "Laptop", price: "70000", offer: "50%", Color: "Silver", img: "https://m.media-amazon.com/images/I/71eBmebIxfL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 15, product: "Printer", price: "25000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/71pmIUEdmGL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 16, product: "Tablet", price: "20456", offer: "50%", Color: "Blue", img: "https://m.media-amazon.com/images/I/71t3j00C-yL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 17, product: "Pillows", price: "900", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/61Vil0HlUUL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 18, product: "Luggage", price: "3000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/71MR55RMopL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 19, product: "Backpack", price: "4200", offer: "50%", Color: "Brown", img: "https://m.media-amazon.com/images/I/71VstNqXvjL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 20, product: "VideoGame", price: "9400", offer: "50%", Color: "Red-Orange", img: "https://m.media-amazon.com/images/I/71wpE+ZIehL._SX522_.jpg" },
+        { id: 21, product: "Tooled", price: "5100", offer: "50%", Color: "Golden", img: "https://m.media-amazon.com/images/I/81mu0fd+wdL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 22, product: "Keyboard", price: "600", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/61GwdMSW18L._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 23, product: "Mouse", price: "300", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/61BJ2MpgTTL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 24, product: "Chair", price: "8800", offer: "50%", Color: "White-Black", img: "https://m.media-amazon.com/images/I/71wTMO+iQIL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 25, product: "Bed", price: "11000", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/81nHBg7BJWL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 26, product: "bottle", price: "900", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/718RbhzhVbL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 27, product: "Watch", price: "44000", offer: "50%", Color: "Gold", img: "https://images-na.ssl-images-amazon.com/images/I/71juCw37PuL._AC_UL165_SR165,165_.jpg" },
+        { id: 28, product: "GaneshJI", price: "101", offer: "50%", Color: "Gold", img: "https://m.media-amazon.com/images/I/91VLicnvuyL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 29, product: "Glass", price: "500", offer: "50%", Color: "Water", img: "https://m.media-amazon.com/images/I/513SJ1oGlAL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 30, product: "PacMan", price: "1200", offer: "50%", Color: "Yellow", img: "https://m.media-amazon.com/images/I/81x5qLlc0OL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 31, product: "Bould", price: "12223", offer: "50%", Color: "White", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/p/w/o/-original-imagtvq6yqhgkr4f.jpeg?q=70" },
+        { id: 32, product: "Moniter", price: "122", offer: "50%", Color: "Black", img: "https://rukminim2.flixcart.com/image/312/312/xif0q/monitor/9/n/9/-original-imagyahhmczxzhqw.jpeg?q=70" },
+        { id: 33, product: "Trimmer", price: "123", offer: "50%", Color: "Pink", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/shaver/q/j/9/triminity-7000-3-in-1-waterproof-electric-shaver-trimmer-wet-dry-original-imah3h5dbm66rcwg.jpeg?q=70" },
+        { id: 34, product: "Camera", price: "19923", offer: "50%", Color: "Salmon", img: "https://rukminim2.flixcart.com/image/312/312/l5fnhjk0/dslr-camera/g/t/7/eos-r10-24-2-r10-canon-original-imagg4y52cybasdr.jpeg?q=70" },
+        { id: 35, product: "Jacket", price: "1563", offer: "50%", Color: "Red", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/jacket/4/n/d/xxl-1-no-jkt1-vebnor-original-imah7fagxb4epvzp.jpeg?q=70" },
+        { id: 36, product: "UnderWear", price: "17823", offer: "50%", Color: "Blue", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/brief/d/z/v/xxl-2-xytrnk2pckn404-xyxx-original-imagzyyznrqpbbhc.jpeg?q=70" },
+        { id: 37, product: "Gloves", price: "18923", offer: "50%", Color: "Skyblue", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/cap/n/a/n/free-w-woolen-cap-scarf-gloves-blk-01-wearslim-original-imah7jmne6zmewtv.jpeg?q=70" },
+        { id: 38, product: "Belt", price: "19623", offer: "50%", Color: "tan", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/belt/y/r/2/38-army-lock-belt-tm-21-army-lock-belt-zoro-original-imaghjgxqadbfq5b.jpeg?q=70" },
+        { id: 39, product: "Jeans", price: "156623", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/jean/7/i/w/30-01-jaar-jean-loose-blk-jaar-fashion-original-imahfay8xgpuykyr.jpeg?q=70" },
+        { id: 40, product: "Iphone", price: "1,70000", offer: "50%", Color: "Blue", img: "https://m.media-amazon.com/images/I/61NfnaEUqOL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 41, product: "Watch", price: "3000", offer: "50%", Color: "Silver", img: "https://m.media-amazon.com/images/I/61u0Nv-aFdL._AC_SY879_.jpg" },
+        { id: 42, product: "headphones", price: "53000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/61OHplw85eL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 43, product: "Laptop", price: "70000", offer: "50%", Color: "Silver", img: "https://m.media-amazon.com/images/I/71eBmebIxfL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 44, product: "Printer", price: "25000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/71pmIUEdmGL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 45, product: "Moniter", price: "20456", offer: "50%", Color: "Blue", img: "https://m.media-amazon.com/images/I/71t3j00C-yL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 46, product: "Pillow", price: "900", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/61Vil0HlUUL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 47, product: "Lagguage", price: "3000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/71MR55RMopL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 48, product: "Backpack", price: "4200", offer: "50%", Color: "Brown", img: "https://m.media-amazon.com/images/I/71VstNqXvjL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 49, product: "VideoGame", price: "9400", offer: "50%", Color: "Red-Orange", img: "https://m.media-amazon.com/images/I/71wpE+ZIehL._SX522_.jpg" },
+        { id: 50, product: "Glasses", price: "5100", offer: "50%", Color: "Golden", img: "https://m.media-amazon.com/images/I/81mu0fd+wdL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 51, product: "Keyboard", price: "600", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/61GwdMSW18L._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 52, product: "Mouse", price: "300", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/61BJ2MpgTTL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 53, product: "Chair", price: "8800", offer: "50%", Color: "White-Black", img: "https://m.media-amazon.com/images/I/71wTMO+iQIL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 54, product: "Bed", price: "11000", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/81nHBg7BJWL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 55, product: "Bootle", price: "900", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/718RbhzhVbL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 56, product: "Watch", price: "44000", offer: "50%", Color: "Gold", img: "https://images-na.ssl-images-amazon.com/images/I/71juCw37PuL._AC_UL165_SR165,165_.jpg" },
+        { id: 57, product: "Ganeshji", price: "101", offer: "50%", Color: "Gold", img: "https://m.media-amazon.com/images/I/91VLicnvuyL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 58, product: "Glass", price: "500", offer: "50%", Color: "Water", img: "https://m.media-amazon.com/images/I/513SJ1oGlAL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 59, product: "PacMan", price: "1200", offer: "50%", Color: "Yellow", img: "https://m.media-amazon.com/images/I/81x5qLlc0OL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 61, product: "Projector", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/projector/q/7/6/i9-pro-10-ei9027-led-projector-egate-original-imah5e3bggu5qcgp.jpeg?q=70" },
+        { id: 62, product: "Cycle", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/electric-cycle/n/c/k/hypno-8ah-battery-front-suspension-90-assembled-led-trooper-grey-original-imah8agmwcbzmnae.jpeg?q=70" },
+        { id: 63, product: "DryFruit", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/nut-dry-fruit/5/t/a/-original-imah3j5kjpnrkwrt.jpeg?q=70" },
+        { id: 64, product: "Gym", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/l3929ow0/kit/g/s/l/40kg-gym-kit3ft-straight-rod-3ft-curl-rod-one-pair-dumbbell-rods-original-imagees7zqjka7f7.jpeg?q=70" },
+        { id: 65, product: "Butter", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/jam-spread/z/e/0/510-orange-crunchy-jar-1-nut-butter-myfitness-peanut-butter-original-imah7uzmcehyzgdd.jpeg?q=70" },
+        { id: 66, product: "NoteBooks", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/acrylic-sheet/c/1/z/1-3-400-sticky-notes-fluorescent-paper-self-adhesive-airsoft-original-imahfpzyafyvzhqc.jpeg?q=70" },
+        { id: 67, product: "Yogamet", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/sport-mat/j/x/b/6mm-ultra-luxurious-eva-yoga-mat-anti-skid-home-exercise-gym-original-imah4gurzenyaxef.jpeg?q=70" },
+        { id: 68, product: "Toys", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/l/b/k/famous-car-remote-control-3d-car-with-led-lights-chargeable-1-original-imagwwfyphzhvpmv.jpeg?q=70" },
+        { id: 69, product: "Guitar", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/acoustic-guitar/a/l/z/rvl-38c-lgp-bk-revel-original-imah6gtbgdxmurwc.jpeg?q=70" },
+        { id: 70, product: "Oats", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/cereal-flake/t/m/c/1050-high-protein-oats-20g-protein-choco-almond-oatmeal-new-original-imahykf7zyxzjatz.jpeg?q=70" },
+        { id: 71, product: "Toys", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/k2jbyq80/stuffed-toy/z/v/x/4-feet-pink-teddy-bear-cute-and-soft-teddy-bear-122-truelover-original-imaetg4fmm9fknku.jpeg?q=70" },
+        { id: 72, product: "Coffee", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/coffee/a/c/h/-original-imagy2ksncwcdzsu.jpeg?q=70" },
+        { id: 73, product: "Slippers", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/slipper-flip-flop/i/c/f/3-mrj1888-aadi-tan-black-original-imah4mefmjzhfzen.jpeg?q=70" },
+        { id: 74, product: "Books", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/book/t/d/k/atomic-habits-original-imah8dhkakf985ck.jpeg?q=70" },
+        { id: 1, product: "Gloves", price: "12223", offer: "50%", Color: "White", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/glove/p/a/l/free-winter-green-gloves-1-pc-nicsy-original-imagv8bnfd8pfxfh.jpeg?q=70" },
+        { id: 2, product: "Shirt", price: "122", offer: "50%", Color: "Black", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/shirt/x/b/5/s-satin12-deemoon-original-imah7uyzh75tshdg.jpeg?q=70" },
+        { id: 3, product: "Pajama", price: "123", offer: "50%", Color: "Pink", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/pyjama/r/z/u/10-11-years-vm-1550356-11427-v-mart-original-imah7cyspz8cwnds.jpeg?q=70" },
+        { id: 4, product: "Lower", price: "19923", offer: "50%", Color: "Salmon", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/track-pant/8/o/b/xs-30659156-hrx-by-hrithik-roshan-original-imah8bypfzcuhh9v.jpeg?q=70" },
+        { id: 5, product: "jacket", price: "1563", offer: "50%", Color: "Red", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/jacket/4/n/d/xxl-1-no-jkt1-vebnor-original-imah7fagxb4epvzp.jpeg?q=70" },
+        { id: 6, product: "Underwear", price: "17823", offer: "50%", Color: "Blue", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/brief/d/z/v/xxl-2-xytrnk2pckn404-xyxx-original-imagzyyznrqpbbhc.jpeg?q=70" },
+        { id: 7, product: "Cap", price: "18923", offer: "50%", Color: "Skyblue", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/cap/n/a/n/free-w-woolen-cap-scarf-gloves-blk-01-wearslim-original-imah7jmne6zmewtv.jpeg?q=70" },
+        { id: 8, product: "Belt", price: "19623", offer: "50%", Color: "tan", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/belt/y/r/2/38-army-lock-belt-tm-21-army-lock-belt-zoro-original-imaghjgxqadbfq5b.jpeg?q=70" },
+        { id: 9, product: "Jeans", price: "156623", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/jean/7/i/w/30-01-jaar-jean-loose-blk-jaar-fashion-original-imahfay8xgpuykyr.jpeg?q=70" },
+        { id: 11, product: "Iphone 11 pro", price: "1,70000", offer: "50%", Color: "Blue", img: "https://m.media-amazon.com/images/I/61NfnaEUqOL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 12, product: "Invicta Watch", price: "3000", offer: "50%", Color: "Silver", img: "https://m.media-amazon.com/images/I/61u0Nv-aFdL._AC_SY879_.jpg" },
+        { id: 13, product: "Headphones", price: "53000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/61OHplw85eL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 14, product: "Laptop", price: "70000", offer: "50%", Color: "Silver", img: "https://m.media-amazon.com/images/I/71eBmebIxfL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 15, product: "Printer", price: "25000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/71pmIUEdmGL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 16, product: "Tablet", price: "20456", offer: "50%", Color: "Blue", img: "https://m.media-amazon.com/images/I/71t3j00C-yL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 17, product: "Pillows", price: "900", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/61Vil0HlUUL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 18, product: "Luggage", price: "3000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/71MR55RMopL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 19, product: "Backpack", price: "4200", offer: "50%", Color: "Brown", img: "https://m.media-amazon.com/images/I/71VstNqXvjL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 20, product: "VideoGame", price: "9400", offer: "50%", Color: "Red-Orange", img: "https://m.media-amazon.com/images/I/71wpE+ZIehL._SX522_.jpg" },
+        { id: 21, product: "Tooled", price: "5100", offer: "50%", Color: "Golden", img: "https://m.media-amazon.com/images/I/81mu0fd+wdL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 22, product: "Keyboard", price: "600", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/61GwdMSW18L._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 23, product: "Mouse", price: "300", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/61BJ2MpgTTL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 24, product: "Chair", price: "8800", offer: "50%", Color: "White-Black", img: "https://m.media-amazon.com/images/I/71wTMO+iQIL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 25, product: "Bed", price: "11000", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/81nHBg7BJWL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 26, product: "bottle", price: "900", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/718RbhzhVbL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 27, product: "Watch", price: "44000", offer: "50%", Color: "Gold", img: "https://images-na.ssl-images-amazon.com/images/I/71juCw37PuL._AC_UL165_SR165,165_.jpg" },
+        { id: 28, product: "GaneshJI", price: "101", offer: "50%", Color: "Gold", img: "https://m.media-amazon.com/images/I/91VLicnvuyL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 29, product: "Glass", price: "500", offer: "50%", Color: "Water", img: "https://m.media-amazon.com/images/I/513SJ1oGlAL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 30, product: "PacMan", price: "1200", offer: "50%", Color: "Yellow", img: "https://m.media-amazon.com/images/I/81x5qLlc0OL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 31, product: "Bould", price: "12223", offer: "50%", Color: "White", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/p/w/o/-original-imagtvq6yqhgkr4f.jpeg?q=70" },
+        { id: 32, product: "Moniter", price: "122", offer: "50%", Color: "Black", img: "https://rukminim2.flixcart.com/image/312/312/xif0q/monitor/9/n/9/-original-imagyahhmczxzhqw.jpeg?q=70" },
+        { id: 33, product: "Trimmer", price: "123", offer: "50%", Color: "Pink", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/shaver/q/j/9/triminity-7000-3-in-1-waterproof-electric-shaver-trimmer-wet-dry-original-imah3h5dbm66rcwg.jpeg?q=70" },
+        { id: 34, product: "Camera", price: "19923", offer: "50%", Color: "Salmon", img: "https://rukminim2.flixcart.com/image/312/312/l5fnhjk0/dslr-camera/g/t/7/eos-r10-24-2-r10-canon-original-imagg4y52cybasdr.jpeg?q=70" },
+        { id: 35, product: "Jacket", price: "1563", offer: "50%", Color: "Red", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/jacket/4/n/d/xxl-1-no-jkt1-vebnor-original-imah7fagxb4epvzp.jpeg?q=70" },
+        { id: 36, product: "UnderWear", price: "17823", offer: "50%", Color: "Blue", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/brief/d/z/v/xxl-2-xytrnk2pckn404-xyxx-original-imagzyyznrqpbbhc.jpeg?q=70" },
+        { id: 37, product: "Gloves", price: "18923", offer: "50%", Color: "Skyblue", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/cap/n/a/n/free-w-woolen-cap-scarf-gloves-blk-01-wearslim-original-imah7jmne6zmewtv.jpeg?q=70" },
+        { id: 38, product: "Belt", price: "19623", offer: "50%", Color: "tan", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/belt/y/r/2/38-army-lock-belt-tm-21-army-lock-belt-zoro-original-imaghjgxqadbfq5b.jpeg?q=70" },
+        { id: 39, product: "Jeans", price: "156623", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/jean/7/i/w/30-01-jaar-jean-loose-blk-jaar-fashion-original-imahfay8xgpuykyr.jpeg?q=70" },
+        { id: 40, product: "Iphone", price: "1,70000", offer: "50%", Color: "Blue", img: "https://m.media-amazon.com/images/I/61NfnaEUqOL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 41, product: "Watch", price: "3000", offer: "50%", Color: "Silver", img: "https://m.media-amazon.com/images/I/61u0Nv-aFdL._AC_SY879_.jpg" },
+        { id: 42, product: "headphones", price: "53000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/61OHplw85eL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 43, product: "Laptop", price: "70000", offer: "50%", Color: "Silver", img: "https://m.media-amazon.com/images/I/71eBmebIxfL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 44, product: "Printer", price: "25000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/71pmIUEdmGL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 45, product: "Moniter", price: "20456", offer: "50%", Color: "Blue", img: "https://m.media-amazon.com/images/I/71t3j00C-yL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 46, product: "Pillow", price: "900", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/61Vil0HlUUL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 47, product: "Lagguage", price: "3000", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/71MR55RMopL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 48, product: "Backpack", price: "4200", offer: "50%", Color: "Brown", img: "https://m.media-amazon.com/images/I/71VstNqXvjL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 49, product: "VideoGame", price: "9400", offer: "50%", Color: "Red-Orange", img: "https://m.media-amazon.com/images/I/71wpE+ZIehL._SX522_.jpg" },
+        { id: 50, product: "Glasses", price: "5100", offer: "50%", Color: "Golden", img: "https://m.media-amazon.com/images/I/81mu0fd+wdL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 51, product: "Keyboard", price: "600", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/61GwdMSW18L._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 52, product: "Mouse", price: "300", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/61BJ2MpgTTL._AC_UY327_FMwebp_QL65_.jpg" },
+        { id: 53, product: "Chair", price: "8800", offer: "50%", Color: "White-Black", img: "https://m.media-amazon.com/images/I/71wTMO+iQIL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 54, product: "Bed", price: "11000", offer: "50%", Color: "White", img: "https://m.media-amazon.com/images/I/81nHBg7BJWL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 55, product: "Bootle", price: "900", offer: "50%", Color: "Black", img: "https://m.media-amazon.com/images/I/718RbhzhVbL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 56, product: "Watch", price: "44000", offer: "50%", Color: "Gold", img: "https://images-na.ssl-images-amazon.com/images/I/71juCw37PuL._AC_UL165_SR165,165_.jpg" },
+        { id: 57, product: "Ganeshji", price: "101", offer: "50%", Color: "Gold", img: "https://m.media-amazon.com/images/I/91VLicnvuyL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 58, product: "Glass", price: "500", offer: "50%", Color: "Water", img: "https://m.media-amazon.com/images/I/513SJ1oGlAL._AC_UL480_FMwebp_QL65_.jpg" },
+        { id: 59, product: "PacMan", price: "1200", offer: "50%", Color: "Yellow", img: "https://m.media-amazon.com/images/I/81x5qLlc0OL.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
+        { id: 61, product: "Projector", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/projector/q/7/6/i9-pro-10-ei9027-led-projector-egate-original-imah5e3bggu5qcgp.jpeg?q=70" },
+        { id: 62, product: "Cycle", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/electric-cycle/n/c/k/hypno-8ah-battery-front-suspension-90-assembled-led-trooper-grey-original-imah8agmwcbzmnae.jpeg?q=70" },
+        { id: 63, product: "DryFruit", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/nut-dry-fruit/5/t/a/-original-imah3j5kjpnrkwrt.jpeg?q=70" },
+        { id: 64, product: "Gym", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/l3929ow0/kit/g/s/l/40kg-gym-kit3ft-straight-rod-3ft-curl-rod-one-pair-dumbbell-rods-original-imagees7zqjka7f7.jpeg?q=70" },
+        { id: 65, product: "Butter", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/jam-spread/z/e/0/510-orange-crunchy-jar-1-nut-butter-myfitness-peanut-butter-original-imah7uzmcehyzgdd.jpeg?q=70" },
+        { id: 66, product: "NoteBooks", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/acrylic-sheet/c/1/z/1-3-400-sticky-notes-fluorescent-paper-self-adhesive-airsoft-original-imahfpzyafyvzhqc.jpeg?q=70" },
+        { id: 67, product: "Yogamet", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/sport-mat/j/x/b/6mm-ultra-luxurious-eva-yoga-mat-anti-skid-home-exercise-gym-original-imah4gurzenyaxef.jpeg?q=70" },
+        { id: 68, product: "Toys", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/l/b/k/famous-car-remote-control-3d-car-with-led-lights-chargeable-1-original-imagwwfyphzhvpmv.jpeg?q=70" },
+        { id: 69, product: "Guitar", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/acoustic-guitar/a/l/z/rvl-38c-lgp-bk-revel-original-imah6gtbgdxmurwc.jpeg?q=70" },
+        { id: 70, product: "Oats", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/cereal-flake/t/m/c/1050-high-protein-oats-20g-protein-choco-almond-oatmeal-new-original-imahykf7zyxzjatz.jpeg?q=70" },
+        { id: 71, product: "Toys", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/k2jbyq80/stuffed-toy/z/v/x/4-feet-pink-teddy-bear-cute-and-soft-teddy-bear-122-truelover-original-imaetg4fmm9fknku.jpeg?q=70" },
+        { id: 72, product: "Coffee", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/coffee/a/c/h/-original-imagy2ksncwcdzsu.jpeg?q=70" },
+        { id: 73, product: "Slippers", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/slipper-flip-flop/i/c/f/3-mrj1888-aadi-tan-black-original-imah4mefmjzhfzen.jpeg?q=70" },
+        { id: 74, product: "Books", price: "1200", offer: "50%", Color: "Yellow", img: "https://rukminim2.flixcart.com/image/612/612/xif0q/book/t/d/k/atomic-habits-original-imah8dhkakf985ck.jpeg?q=70" },
+        ]
+
+        console.log(data);
+
+        let one = data.map((items) => {
+            // const { id, color, product, price, offer } = items
+            return <div class="card">
+                <div class="cardChild">
+
+                    <h3 class="product">  ${items.product} </h3>
+                    <img src="${item.img}" alt="${item.product}" />
+                    <article class="text">
+                        <h4 class="price"> price: ${items.price} </h4>
+                        <h5 class="offer">  offer: ${items.offer} </h5>
+
+                    </article>
+
+                </div>
+            </div>
+        }).join('')
+        console.log(one);
+        rang.style.backgroundColor = "red";
+        div.innerHTML = one
+    </script>
+</body>
+
+</html>
